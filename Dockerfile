@@ -7,18 +7,11 @@ RUN apt-get update && apt-get install -y \
     libcurl4-openssl-dev \
     libssl-dev \
     make \
-    libglpk-dev \
-    libxml2-dev \
     pandoc \
     libicu-dev \
-    libpng-dev \
-    libgdal-dev \
-    gdal-bin \
-    libgeos-dev \
-    libproj-dev \
-    libsqlite3-dev \
-    libx11-dev \
-    zlib1g-dev
+    zlib1g-dev \
+    libxml2-dev \
+    libx11-dev
 
 # Workaround for renv cache
 RUN mkdir /.cache

@@ -20,9 +20,6 @@ box::use(
 
 box::use(app/view/sidebar)
 box::use(app/view/plotly)
-box::use(app/view/highcharter)
-box::use(app/view/dt)
-box::use(app/view/reactable)
 
 
 # Define UI --------------------Country# Define UI ---------------------------------------------------------------
@@ -46,18 +43,9 @@ ui <- function(id) {
             nav_panel(
                 title = "Visualizations",
                 layout_column_wrap(
-                    width = "400px",
-                    plotly$ui(ns("chart1")),
-                    highcharter$ui(ns("chart2"))
+                    # width = "400px",
+                    plotly$ui(ns("chart1"))
                 )
-            ),
-            nav_panel(
-                title = "DT",
-                dt$ui(ns("table1")),
-            ),
-            nav_panel(
-                title = "Reactable",
-                reactable$ui(ns("table2"))
             )
         )
     )
@@ -70,9 +58,6 @@ server <- function(id){
         data <- rio::import("app/data/cleaned_data.csv")
         data2 <- sidebar$server("sidebar1",data) 
         plotly$server("chart1",data2)
-        highcharter$server("chart2",data2)
-        dt$server("table1",data2)
-        reactable$server("table2",data2)
         }
     )
 }

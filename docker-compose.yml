@@ -1,7 +1,7 @@
 
 services:
   shiny:
-    image: rgottberg/dash:latest
+    image: dash_final
     container_name: business_dash_container
     restart: unless-stopped
     ports:
